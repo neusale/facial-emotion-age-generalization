@@ -12,4 +12,4 @@ Steps:
 9) Execute Training_dataSets_with_ResNet_Models 
 10) Execute Training_dataSets_with_VGG16_Models 
 11) Use Predicting_Testdatasets_with_trainedModels to predict Test with all trained models (replace value of DATASET variable for each available dataset)
-12) See results of all predictions \results\complet_result.csv****
+12) See results of all predictions \results\complet_result.csv
