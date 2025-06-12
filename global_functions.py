@@ -37,15 +37,15 @@ def download_extract(url, output, to):
     gdown.download(url, output, quiet=False)
     gdown.extractall(output, to)
     
-def obter_imagens(diretorio, extensao='jpg'):
+def get_images(diretorio, extensao='jpg'):
    array_arquivos = glob.glob(diretorio+'/*.'+extensao)
    return array_arquivos
 
-def obter_modelos_salvos(dataSetTreino, extensao='h5'):
-   array_arquivos = glob.glob('*_' + dataSetTreino + '.' + extensao)
-   return array_arquivos
+def get_saved_models(dataSetTreino, extensao='h5'):
+   array = glob.glob('*_' + dataSetTreino + '.' + extensao)
+   return array
    
-def obter_classes(quantidade, indice_emocao):
+def get_class(quantidade, indice_emocao):
    array_classes = np.full(quantidade,indice_emocao).astype('int')
    return array_classes    
    
@@ -54,29 +54,29 @@ def getFiles(dataset, crop=False, extensao='jpg'):
     drive_name = dataset + '_Angry'
     if crop==True:
         drive_name += '_cropped'
-    files_raiva = obter_imagens(drive_name, extensao)
-    filesclass_raiva = obter_classes(len(files_raiva), 0)
+    files_raiva = get_images(drive_name, extensao)
+    filesclass_raiva = get_class(len(files_raiva), 0)
     print('Raiva: '+ str(len(files_raiva)))
 
     drive_name = dataset + '_Fear'
     if crop==True:
         drive_name += '_cropped'
-    files_medo = obter_imagens(drive_name, extensao)
-    filesclass_medo = obter_classes(len(files_medo), 1)
+    files_medo = get_images(drive_name, extensao)
+    filesclass_medo = get_class(len(files_medo), 1)
     print('Medo: ' + str(len(files_medo)))
 
     drive_name = dataset + '_Happy'
     if crop==True:
         drive_name += '_cropped'
-    files_alegria = obter_imagens(drive_name, extensao)
-    filesclass_alegria = obter_classes(len(files_alegria), 2)
+    files_alegria = get_images(drive_name, extensao)
+    filesclass_alegria = get_class(len(files_alegria), 2)
     print('Alegria: ' + str(len(files_alegria)))
 
     drive_name = dataset + '_Sad'
     if crop==True:
         drive_name += '_cropped'
-    files_tristeza = obter_imagens(drive_name, extensao)
-    filesclass_tristeza = obter_classes(len(files_tristeza), 3)
+    files_tristeza = get_images(drive_name, extensao)
+    filesclass_tristeza = get_class(len(files_tristeza), 3)
     print('Tristeza: ' + str(len(files_tristeza)))   
     
     files = np.concatenate((files_raiva, files_medo, files_alegria, files_tristeza), axis=0)
@@ -439,7 +439,7 @@ def verify_cropped_image(img_crop, face_cascade, k=10, size=224):
     return False 
 
     
-def criar_image_features(files, img_width, img_height, crop=False, k=10, size=224):
+def create_image_features(files, img_width, img_height, crop=False, k=10, size=224):
     img_features = []
     face_cascade = instance_cascade_classifier()
     detector = instance_detector_mtcnn()
@@ -458,7 +458,7 @@ def criar_image_features(files, img_width, img_height, crop=False, k=10, size=22
     print(img_features.shape)
     return img_features
     
-def amostra_imagens(files, fclasses, emotions, crop=False, k=10, size=224):
+def images_samples(files, fclasses, emotions, crop=False, k=10, size=224):
     face_cascade = instance_cascade_classifier()
     detector = instance_detector_mtcnn()
 
@@ -485,7 +485,7 @@ def amostra_imagens(files, fclasses, emotions, crop=False, k=10, size=224):
               j += 1
           k_img += 1
           
-def amostra_predicoes(X, y, yhat, emotions):
+def prediction_samples(X, y, yhat, emotions):
     fig = pyplot.figure(1, (14, 14))
     pos = 0
     r = len(emotions) + 1
@@ -529,7 +529,7 @@ def crop_and_see(file, k=10, size=224):
     ax.set_title("crop")
     pyplot.tight_layout()
                                            
-def todas_as_imagens(files, fclasses, emotions, crop=False, k=10, size=224, inicio=0, fim=0):
+def all_of_images(files, fclasses, emotions, crop=False, k=10, size=224, inicio=0, fim=0):
     face_cascade = instance_cascade_classifier()
     detector = instance_detector_mtcnn()
 
