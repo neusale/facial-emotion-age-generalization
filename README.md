@@ -6,10 +6,8 @@
 ---
 ### Authors  
 - **Neusa Liberato Evangelista**  
-  Serviço Federal de Processamento de Dados, Brasil  
-  Instituto de Informática, Universidade Federal do Rio Grande do Sul, Brasil  
+  Serviço Federal de Processamento de Dados, Brasil    
 - **Thiago Lopes Trugillo da Silveira**  
-  Instituto de Informática, Universidade Federal do Rio Grande do Sul, Brasil  
   Departamento de Computação Aplicada, Universidade Federal de Santa Maria, Brasil  
 
 ---
