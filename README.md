@@ -1,15 +1,64 @@
-# facial-emotion-age-generalization
-Steps:
+# Facial Emotion and Age Generalization Study
 
-1) Get the images from the datasets you will use for training and testing
-2) Create directories for each dataset and emotion like CK_Angry, CK_Fear, CK_Sad and CK_Happy
-3) Copy images for each directory according dataset and emotion
-4) Create directory results 
-5) Execute Save_cropped_images to create directories with cropped images (replace value of DATASET variable for each available dataset)
-6) Execute Training_dataSets_with_Models_base to split datasets into train, validation and test sets (replace value of DATASET variable for each available dataset)
-7) Execute Training_dataSets_with_DenseNet_Models  
-8) Execute Training_dataSets_with_MobileNet_Models 
-9) Execute Training_dataSets_with_ResNet_Models 
-10) Execute Training_dataSets_with_VGG16_Models 
-11) Use Predicting_Testdatasets_with_trainedModels to predict Test with all trained models (replace value of DATASET variable for each available dataset)
-12) See results of all predictions \results\complet_result.csv
+**Paper under review at [RITA Journal](https://seer.ufrgs.br/rita)**  
+*Do Deep Learning Models Generalize Facial Emotion Recognition in Different Age Groups?*  
+
+---
+### Authors  
+- **Neusa Liberato Evangelista**  
+  Serviço Federal de Processamento de Dados, Brasil  
+  Instituto de Informática, Universidade Federal do Rio Grande do Sul, Brasil  
+- **Thiago Lopes Trugillo da Silveira**  
+  Instituto de Informática, Universidade Federal do Rio Grande do Sul, Brasil  
+  Departamento de Computação Aplicada, Universidade Federal de Santa Maria, Brasil  
+
+---
+
+## Abstract  
+The prevalence of adult images in facial emotion recognition (FER) databases introduces a significant bias in emotion classification. While datasets exclusively featuring children or adults aged 60+ exist, they often involve controlled scenarios with staged emotions.  
+
+This paper evaluates the **generalization potential** of deep learning models:  
+- Pre-trained on **ImageNet** and fine-tuned using **CK+**, **DEFSS**, **FACES (60+)**, **MUG**, and **NIMH-ChEFS**  
+- Tested via **cross-database evaluation** across 6 datasets and 3 age groups  
+
+### Key Findings  
+- Models fine-tuned on children's images achieve **88% accuracy** for child predictions  
+- The FACES (60+) dataset shows **>80% accuracy** on external datasets and **96%** on its own test set  
+
+**Keywords**: FER, CNN, Pre-trained models fine-tuning, Age bias in FER datasets  
+
+---
+
+## Repository Structure  
+facial-emotion-age-generalization/
+- <dataset>_<emotion>/ # Raw images (for example, CK_Fear)
+- <dataset>_<emotion>_cropped/ # Cropped face images (output of preprocessing, for example, CK_Fear_cropped)
+- .pny for split_data 
+- .h5 for trained_models/ 
+- results/complet_result.csv # Prediction results
+- .ipynb # Jupyter notebooks (.ipynb) for all workflow steps
+
+## Workflow  
+1. **Dataset Preparation**  
+   Organize raw images into `datasets/<dataset>_<emotion>` directories (e.g., `datasets/CK_Angry/`).
+
+2. **Preprocessing**  
+   ```bash
+   python Save_cropped_images.ipynb  # Generates <dataset>_<emotion>_cropped directories
+
+3. **Data splitting**
+   ```bash
+   python Training_dataSets_with_Models_base.ipynb  # Creates split_data/*.pny
+   
+5. **Model Training**
+   ```bash
+   python Training_dataSets_with_[DenseNet|MobileNet|ResNet|VGG16]_Models.ipynb
+   
+7. **Evaluation**
+   ```bash
+   python Predicting_Testdatasets_with_trainedModels.ipynb
+   
+9. **Results**
+   Final metrics are saved in results/complet_result.csv.
+
+   
