@@ -29,11 +29,11 @@ This paper evaluates the **generalization potential** of deep learning models:
 
 ## Repository Structure  
 facial-emotion-age-generalization/
-- <dataset>_<emotion>/ # Raw images (for example, CK_Fear)
-- <dataset>_<emotion>_cropped/ # Cropped face images (output of preprocessing, for example, CK_Fear_cropped)
-- .pny for split_data 
-- .h5 for trained_models/ 
-- results/complet_result.csv # Prediction results
+- \<dataset\>_\<emotion\>/ # Raw images (for example, CK_Fear)
+- \<dataset\>_\<emotion\>_cropped/ # Cropped face images (output of preprocessing, for example, CK_Fear_cropped)
+- .pny for split_data (output of data splitting)
+- .h5 for trained_models/  (output of model training)
+- results/complet_result.csv # Prediction results (output of evaluation)
 - .ipynb # Jupyter notebooks (.ipynb) for all workflow steps
 
 ## Workflow  
