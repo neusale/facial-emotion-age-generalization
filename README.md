@@ -42,23 +42,42 @@ facial-emotion-age-generalization/
 1. **Dataset Preparation**  
    Organize raw images into `datasets/<dataset>_<emotion>` directories (e.g., `datasets/CK_Angry/`).
 
-2. **Preprocessing**  
+2. **Preprocessing**
+
+   Replace value of DATASET variable for each available dataset.
+   
    ```bash
    python Save_cropped_images.ipynb  # Generates <dataset>_<emotion>_cropped directories
 
-3. **Data splitting**
+4. **Data splitting**
+
+    Replace value of DATASET variable for each available dataset.
+   
    ```bash
    python Training_dataSets_with_Models_base.ipynb  # Creates split_data/*.pny
    
-5. **Model Training**
-   ```bash
-   python Training_dataSets_with_[DenseNet|MobileNet|ResNet|VGG16]_Models.ipynb
+6. **Model Training**
+
+   Replace value of DATASET variable for each available dataset.
    
-7. **Evaluation**
+   ```bash
+   python Training_dataSets_with_DenseNet_Models.ipynb
+   ```bash
+   python Training_dataSets_with_MobileNet_Models.ipynb
+   ```bash
+   python Training_dataSets_with_ResNet_Models.ipynb
+
+   ```bash
+   python Training_dataSets_with_VGG16_Models.ipynb  
+   
+8. **Evaluation**
+
+   Replace value of DATASET variable for each available dataset.
+   
    ```bash
    python Predicting_Testdatasets_with_trainedModels.ipynb
    
-9. **Results**
+10. **Results**
    Final metrics are saved in results/complet_result.csv.
 
    
