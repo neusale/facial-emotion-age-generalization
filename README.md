@@ -29,8 +29,8 @@ This paper evaluates the **generalization potential** of deep learning models:
 
 ## Repository Structure  
 facial-emotion-age-generalization/
-- \<dataset\>_\<emotion\>/ # Raw images (for example, CK_Fear)
-- \<dataset\>_\<emotion\>_cropped/ # Cropped face images (output of preprocessing, for example, CK_Fear_cropped)
+- `<dataset>_<emotion>`/ # Raw images (for example, CK_Fear)
+- `<dataset>_<emotion>_cropped`/ # Cropped face images (output of preprocessing, for example, CK_Fear_cropped)
 - .pny for split_data (output of data splitting)
 - .h5 for trained_models/  (output of model training)
 - results/complet_result.csv # Prediction results (output of evaluation)
@@ -38,7 +38,7 @@ facial-emotion-age-generalization/
 
 ## Workflow  
 1. **Dataset Preparation**  
-   Organize raw images into `datasets/<dataset>_<emotion>` directories (e.g., `datasets/CK_Angry/`).
+   Organize raw images into `<dataset>_<emotion>` directories (e.g., `CK_Angry/`).
 
 2. **Preprocessing**
 
@@ -52,14 +52,14 @@ facial-emotion-age-generalization/
     Replace value of DATASET variable for each available dataset.
    
    ```bash
-   python Training_dataSets_with_Models_base.ipynb  # Creates split_data/*.pny
+   python Training_dataSets_with_Models_base.ipynb  # Creates *.pny
    
 6. **Model Training**
 
    Replace value of DATASET variable for each available dataset.
    
    ```bash
-   python Training_dataSets_with_DenseNet_Models.ipynb
+   python Training_dataSets_with_DenseNet_Models.ipynb # Creates *.h5
    
    python Training_dataSets_with_MobileNet_Models.ipynb
   
