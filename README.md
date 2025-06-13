@@ -60,12 +60,11 @@ facial-emotion-age-generalization/
    
    ```bash
    python Training_dataSets_with_DenseNet_Models.ipynb
-   ```bash
+   
    python Training_dataSets_with_MobileNet_Models.ipynb
-   ```bash
+  
    python Training_dataSets_with_ResNet_Models.ipynb
 
-   ```bash
    python Training_dataSets_with_VGG16_Models.ipynb  
    
 8. **Evaluation**
